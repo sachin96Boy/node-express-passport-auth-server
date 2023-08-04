@@ -53,9 +53,12 @@ userRouter.post('/register', (req, res) => {
 });
 
 // login User
-userRouter.post('/login', passport.authenticate('local', { failureRedirect: '/login' }), (req, res, next) => {
-    res.redirect('/');
-});
+userRouter.post(
+    '/login',
+    passport.authenticate('local', { failureRedirect: '/login' }),
+    (req, res, next) => {
+        res.redirect('/');
+    });
 
 // logout
 userRouter.get('/logout', (req, res, next) => {
